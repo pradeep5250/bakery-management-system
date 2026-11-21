@@ -1,0 +1,89 @@
+.barcode-label {
+    width: 58mm;
+    min-height: 40mm;
+    margin: 0 auto;
+    padding: 4mm 3.5mm 3.5mm;
+    text-align: center;
+    background: #fff;
+    border: 1px dashed #d9cbb6;
+    border-radius: 8px;
+    color: #241E1B;
+}
+.label-preview-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 18px 8px;
+    background: #F6F0E6;
+    border-radius: 18px;
+}
+.bl-shop {
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #6B3E26;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+.bl-name {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+.barcode-label svg { max-width: 100%; height: 48px; }
+.bl-code {
+    font-size: 11px;
+    letter-spacing: .08em;
+    margin-top: 2px;
+}
+.bl-price {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 3px;
+}
+.label-print-area { display: none; }
+
+@media print {
+    .no-print,
+    .app-navbar,
+    .app-sidebar,
+    .mobile-bottom-nav,
+    .sidebar-backdrop,
+    .nav-toggle,
+    .guest-top,
+    .toast-wrap {
+        display: none !important;
+    }
+    .app-shell, .app-content { padding: 0 !important; margin: 0 !important; }
+    body { background: #fff !important; }
+    a[href]:after { content: ""; }
+
+    body.print-labels .app-content > *:not(.label-print-area) {
+        display: none !important;
+    }
+    body.print-labels .label-print-area {
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 3mm;
+        padding: 0;
+    }
+    body.print-labels .barcode-label {
+        border: 1px solid #ddd;
+        border-radius: 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin: 0;
+    }
+    .print-a4 { width: 210mm; margin: 0 auto; }
+    .print-thermal {
+        width: 80mm;
+        margin: 0 auto;
+        font-size: 12px;
+    }
+}
+
+@page {
+    margin: 8mm;
+    size: auto;
+}
